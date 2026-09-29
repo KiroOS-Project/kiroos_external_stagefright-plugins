@@ -17,4 +17,8 @@
 
 LOCAL_PATH := $(call my-dir)
 
+# KiroOS: the FFmpeg plugins need external/ffmpeg, which has no x86_64 configuration: not on the
+# x86_64 emulator build (device/kiroos/kiro_emu_x86_64)
+ifneq ($(TARGET_ARCH_VARIANT),x86_64)
 include $(call first-makefiles-under,$(LOCAL_PATH))
+endif
